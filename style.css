@@ -40,7 +40,8 @@
 
 .symbols i{
     position: relative;
-    left: 650px;
+    left: 32vw;
     padding: 5px;
     top: 14px;
+    cursor: pointer;
 }
