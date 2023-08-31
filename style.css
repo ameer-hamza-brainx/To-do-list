@@ -41,7 +41,6 @@
 }
 .symbols{
     display: flex;
-    /* background-color: red; */
     width: 100%;
     justify-content: end;
     align-items: center;
@@ -49,8 +48,20 @@
 .symbols i{
     padding: 10px;
 }
-input{
-    /* height: 1.2rem; */
-    /* position: relative; */
-    /* top: 0.4rem; */
+@media screen  and (max-width: 700px){
+    .container{
+        width: 80vw;
+}
+}
+@media screen  and (max-width: 400px){
+    .container{
+        width: 100vw;
+}
+.body{
+    align-items: start;
+}
+.inp{
+    width: 80vw;
+    padding: 0px;
+}
 }

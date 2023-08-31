@@ -35,14 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 console.log(liTag);
 
-                const parentElement = document.querySelector('ul'); // Change to your actual parent element
+                const parentElement = document.querySelector('ul');
                 parentElement.appendChild(liTag);
 
                 document.getElementById('inp').value = "";
             }
         });
         document.getElementById('tasks').addEventListener('click',function(e){
-            // console.log(e.target);
             if(e.target.id === "delIcon"){
                 e.target.parentElement.parentElement.remove();
             }
@@ -58,9 +57,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 inputElement.addEventListener('keypress',function(e){
                     if(e.key === "Enter")
                     {
-                        para.innerHTML = inputElement.value;
-                        console.log(inputElement.value);
-                        inputElement.type = "checkbox";
+                        if(inputElement.value === "")
+                        {
+                            alert("Add some task");
+                        }
+                        else
+                        {
+                            para.innerHTML = inputElement.value;
+                            inputElement.type = "checkbox";
+                            inputElement.blur();
+                        }
                     }
                 });
             }
