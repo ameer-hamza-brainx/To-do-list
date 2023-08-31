@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             if(e.key == "Enter" && document.getElementById('inp').value !== "")
             {
-                console.log("pressed");
                 let liTag = document.createElement("li");
 
                 let checkbox = document.createElement("input");
@@ -33,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 liTag.appendChild(paragraph);
                 liTag.appendChild(symbolsClass);
 
-                console.log(liTag);
 
                 const parentElement = document.querySelector('ul');
                 parentElement.appendChild(liTag);
@@ -47,13 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             else if(e.target.id === "editIcon")
             {
-                console.log(e.target.parentElement.previousElementSibling.previousElementSibling);
                 let inputElement = e.target.parentElement.previousElementSibling.previousElementSibling;
                 inputElement.type = "text";
                 let para = e.target.parentElement.previousElementSibling;
                 inputElement.value = para.innerHTML;
                 para.innerHTML = "";
-                console.log(inputElement.value);
                 inputElement.addEventListener('keypress',function(e){
                     if(e.key === "Enter")
                     {
