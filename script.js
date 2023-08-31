@@ -51,18 +51,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 inputElement.value = para.innerHTML;
                 para.innerHTML = "";
                 inputElement.addEventListener('keypress',function(e){
-                    if(e.key === "Enter")
+                    if(e.key === "Enter" && inputElement.value !== "")
                     {
-                        if(inputElement.value === "")
-                        {
-                            alert("Add some task");
-                        }
-                        else
-                        {
-                            para.innerHTML = inputElement.value;
-                            inputElement.type = "checkbox";
-                            inputElement.blur();
-                        }
+                        para.innerHTML = inputElement.value;
+                        inputElement.type = "checkbox";
+                        inputElement.blur();
+                    }
+                    else if(e.key === "Enter" && inputElement.value === ""){
+                        alert("Add some tasks");
                     }
                 });
             }
