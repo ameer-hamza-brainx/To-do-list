@@ -46,21 +46,25 @@ document.addEventListener('DOMContentLoaded', function() {
             else if(e.target.id === "editIcon")
             {
                 let inputElement = e.target.parentElement.previousElementSibling.previousElementSibling;
-                inputElement.type = "text";
-                let para = e.target.parentElement.previousElementSibling;
-                inputElement.value = para.innerHTML;
-                para.innerHTML = "";
-                inputElement.addEventListener('keypress',function(e){
-                    if(e.key === "Enter" && inputElement.value !== "")
-                    {
-                        para.innerHTML = inputElement.value;
-                        inputElement.type = "checkbox";
-                        inputElement.blur();
-                    }
-                    else if(e.key === "Enter" && inputElement.value === ""){
-                        alert("Add some tasks");
-                    }
-                });
+                if(inputElement.type === "checkbox")
+                {
+                    
+                    inputElement.type = "text";
+                    let para = e.target.parentElement.previousElementSibling;
+                    inputElement.value = para.innerHTML;
+                    para.innerHTML = "";
+                    inputElement.addEventListener('keypress',function(e){
+                        if(e.key === "Enter" && inputElement.value !== "")
+                        {   e.preventDefault()
+                            para.innerHTML = inputElement.value;
+                            inputElement.type = "checkbox";
+                            inputElement.blur();
+                        }
+                        else if(e.key === "Enter" && inputElement.value === ""){
+                            alert("Add some tasks");
+                        }
+                    });
+                }
             }
             else if(e.target.id==="checkbox")
             {
